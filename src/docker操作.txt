@@ -1,0 +1,7 @@
+docker build -t ccr.ccs.tencentyun.com/lianwh/myweb:1.0.4 .
+docker push ccr.ccs.tencentyun.com/lianwh/myweb:1.0.4
+
+# 服务器部署
+docker pull ccr.ccs.tencentyun.com/lianwh/myweb:1.0.4
+docker rm -f myweb
+docker run -d -p 80:80 -p 443:443 --name myweb ccr.ccs.tencentyun.com/lianwh/myweb:1.0.4
