@@ -114,6 +114,10 @@ export default function Footer() {
               <a href="https://beian.miit.gov.cn/" className="text-gray-400 text-sm hover:text-white transition-colors">
                 粤ICP备2026081936号-1
               </a>
+              <span className="text-gray-500 text-sm">|</span>
+              <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44010502004149" rel="noreferrer" target="_blank" className="text-gray-400 text-sm hover:text-white transition-colors">
+                粤公网安备44010502004149号
+              </a>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 text-sm hover:text-white transition-colors">

@@ -42,7 +42,7 @@ function AnimatedNumber({ value }: { value: string }) {
     return () => observer.disconnect();
   }, [value, hasAnimated]);
 
-  return <div ref={ref} className="text-4xl sm:text-5xl font-bold text-blue-600">{displayValue}</div>;
+  return <div ref={ref} className="text-4xl sm:text-5xl font-bold text-amber-400">{displayValue}</div>;
 }
 
 export default function Stats() {

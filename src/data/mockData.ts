@@ -37,8 +37,8 @@ export interface Stat {
 
 export const companyInfo: CompanyInfo = {
   name: '新海洋生活馆',
-  slogan: '如海洋般清澈，让爱车焕发光彩',
-  description: '新海洋生活馆致力于为车主提供如海洋般清澈洁净的洗车体验。我们专注于自助洗车设备的研发与创新，以先进技术和优质服务，打造便捷、高效、环保的洗车解决方案，让每一辆车都能重焕新生。',
+  slogan: '给爱车精致养护，给自己片刻清闲',
+  description: '新海洋生活馆，不止洗车养车，更是惬意休闲空间。我们深耕汽车洗护与养护领域，依托自研创新设备与前沿技术，打造高效、环保、专业的汽车服务方案。同时配套茶饮区、休闲空间，爱车焕新的间隙，让你品茶小憩、轻松等候，一站式解锁养车与休闲双重体验。',
   history: [
     { year: '2007', event: '公司成立，推出第一代自助洗车机' },
     { year: '2017', event: '获得国家高新技术企业认证' },
@@ -57,7 +57,7 @@ export const companyInfo: CompanyInfo = {
 export const products: Product[] = [
   {
     id: 1,
-    name: 'JM-S01 标准型自助洗车机',
+    name: 'ZZ-S01 标准型自助洗车机',
     category: 'self-service',
     description: '经济实惠的入门级自助洗车机，适合小型停车场和社区使用。操作简单，功能齐全，是创业首选。',
     features: ['高压水枪清洗', '泡沫喷洒功能', '清水冲洗', '吸尘功能', '投币/扫码支付'],
@@ -74,7 +74,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: 'JM-S02 豪华型自助洗车机',
+    name: 'ZZ-S02 豪华型自助洗车机',
     category: 'self-service',
     description: '高端配置的自助洗车机，配备智能控制系统和多种清洗模式，适合大型停车场和商业区。',
     features: ['智能控制屏幕', '多种清洗模式', '温水清洗', '风干功能', '会员系统', '远程监控'],
@@ -86,14 +86,14 @@ export const products: Product[] = [
       { label: '尺寸', value: '1500×1000×2200mm' },
       { label: '重量', value: '280kg' },
     ],
-    priceRange: '¥18,000 - ¥28,000',
+    priceRange: '¥8,000 - ¥18,000',
     imageUrl: '/pro2.png',
   },
   {
     id: 3,
-    name: 'JM-A01 隧道式全自动洗车机',
+    name: 'HA-A01 悬空单轨式半/全自动洗车机',
     category: 'automatic',
-    description: '高效的隧道式洗车机，车辆驶入后全自动完成清洗过程，适合车流量大的场所。',
+    description: '高效的悬空单轨式半洗车机，车辆驶入后可全半自动或自动完成清洗过程，适合车流量大的场所。',
     features: ['全自动清洗', '泡沫刷洗', '高压水冲洗', '风干系统', '底盘清洗', '3分钟快速洗车'],
     specifications: [
       { label: '功率', value: '22kW' },
@@ -103,14 +103,14 @@ export const products: Product[] = [
       { label: '尺寸', value: '12000×3000×3500mm' },
       { label: '重量', value: '3500kg' },
     ],
-    priceRange: '¥150,000 - ¥250,000',
+    priceRange: '¥80,000 - ¥150,000',
     imageUrl: '/pro3.png',
   },
   {
     id: 4,
-    name: 'JM-A02 往复式全自动洗车机',
+    name: 'HA-A02 悬空双轨式半/全自动洗车机',
     category: 'automatic',
-    description: '灵活的往复式洗车机，占地面积小，清洗效果好，适合各种场地使用。',
+    description: '高效的悬空双轨式半洗车机，占地面积小，清洗效果好，适合各种场地使用。',
     features: ['往复式清洗', '仿形刷洗', '智能感应', '水蜡护理', '轮毂清洗', '节能环保'],
     specifications: [
       { label: '功率', value: '15kW' },
@@ -126,10 +126,10 @@ export const products: Product[] = [
 ];
 
 export const stats: Stat[] = [
-  { value: '5000+', label: '设备销量' },
-  { value: '1000+', label: '服务网点' },
+  { value: '20000+', label: '设备销量' },
+  { value: '3000+', label: '服务网点' },
   { value: '98%', label: '客户满意度' },
-  { value: '8年', label: '行业经验' },
+  { value: '19年', label: '行业经验' },
 ];
 
 export const services: Service[] = [
