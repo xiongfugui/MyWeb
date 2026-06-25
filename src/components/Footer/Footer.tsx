@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              <Droplets className="w-8 h-8 mr-2 text-blue-400" />
+              <Droplets className="w-8 h-8 mr-2 text-cyan-400" />
               <span className="text-xl font-bold">{companyInfo.name}</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
@@ -56,13 +56,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">产品中心</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-100">产品中心</h3>
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.path}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="text-gray-400 text-sm hover:text-cyan-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -72,13 +72,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">服务支持</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-100">服务支持</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.path}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="text-gray-400 text-sm hover:text-cyan-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -88,13 +88,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">关于我们</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-100">关于我们</h3>
             <ul className="space-y-2">
               {footerLinks.about.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.path}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="text-gray-400 text-sm hover:text-cyan-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -110,23 +110,23 @@ export default function Footer() {
               <p className="text-gray-400 text-sm">
                 © {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
               </p>
-              <span className="text-gray-500 text-sm">|</span>
-              <a href="https://beian.miit.gov.cn/" className="text-gray-400 text-sm hover:text-white transition-colors">
+              <span className="text-gray-600 text-sm">|</span>
+              <a href="https://beian.miit.gov.cn/" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
                 粤ICP备2026081936号-1
               </a>
-              <span className="text-gray-500 text-sm">|</span>
-              <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44010502004149" rel="noreferrer" target="_blank" className="text-gray-400 text-sm hover:text-white transition-colors">
+              <span className="text-gray-600 text-sm">|</span>
+              <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44010502004149" rel="noreferrer" target="_blank" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
                 粤公网安备44010502004149号
               </a>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
                 隐私政策
               </a>
-              <a href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
                 服务条款
               </a>
-              <a href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
                 网站地图
               </a>
             </div>

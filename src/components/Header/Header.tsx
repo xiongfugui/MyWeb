@@ -33,7 +33,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-md py-3'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -45,12 +45,12 @@ export default function Header() {
           >
             <Droplets
               className={`w-8 h-8 mr-2 ${
-                isScrolled ? 'text-blue-600' : 'text-white'
+                isScrolled ? 'text-cyan-600' : 'text-cyan-400'
               }`}
             />
             <span
               className={`text-xl font-bold ${
-                isScrolled ? 'text-gray-800' : 'text-white'
+                isScrolled ? 'text-gray-900' : 'text-white'
               }`}
             >
               新海洋生活馆
@@ -62,14 +62,14 @@ export default function Header() {
               <button
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                className={`text-sm font-medium transition-colors ${
                   location.pathname === item.path
                     ? isScrolled
-                      ? 'text-blue-600'
+                      ? 'text-cyan-600'
                       : 'text-white'
                     : isScrolled
-                    ? 'text-gray-600'
-                    : 'text-white/90'
+                    ? 'text-gray-600 hover:text-cyan-600'
+                    : 'text-white/80 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -78,10 +78,10 @@ export default function Header() {
           </nav>
 
           <button
-            className={`hidden md:block px-6 py-2 rounded-full font-medium transition-all hover:shadow-lg ${
+            className={`hidden md:block px-6 py-2.5 rounded-full font-medium transition-all hover:shadow-md ${
               isScrolled
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                : 'bg-white text-blue-600 hover:bg-gray-100'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700'
+                : 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
             }`}
             onClick={() => handleNavClick('/contact')}
           >
@@ -90,7 +90,7 @@ export default function Header() {
 
           <button
             className={`md:hidden p-2 ${
-              isScrolled ? 'text-gray-600' : 'text-white'
+              isScrolled ? 'text-gray-700' : 'text-white'
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -99,15 +99,15 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
-            <div className="flex flex-col space-y-4">
+          <nav className="md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+            <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <button
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className={`text-left px-4 py-2 rounded-lg transition-colors ${
+                  className={`text-left px-4 py-2.5 rounded-lg transition-colors ${
                     location.pathname === item.path
-                      ? 'bg-blue-50 text-blue-600'
+                      ? 'bg-cyan-50 text-cyan-600'
                       : 'text-gray-600 hover:bg-gray-50'
                   }`}
                 >
@@ -115,7 +115,7 @@ export default function Header() {
                 </button>
               ))}
               <button
-                className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-full font-medium mx-4 hover:bg-blue-700 transition-colors"
+                className="mt-4 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-medium mx-4 hover:from-cyan-600 hover:to-blue-700 transition-all"
                 onClick={() => handleNavClick('/contact')}
               >
                 获取报价

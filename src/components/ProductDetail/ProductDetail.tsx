@@ -86,11 +86,7 @@ export default function ProductDetail({ product, onClose }: ProductDetailProps) 
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-              <div>
-                <span className="text-gray-500 text-sm">价格区间</span>
-                <p className="text-2xl font-bold text-blue-600">{product.priceRange}</p>
-              </div>
+            <div className="flex items-center justify-center pt-4 border-t border-gray-200">
               <button className="px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors">
                 获取报价
               </button>

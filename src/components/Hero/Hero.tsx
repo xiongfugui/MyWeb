@@ -1,4 +1,4 @@
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { companyInfo } from '../../data/mockData';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,50 +20,42 @@ export default function Hero() {
           alt="新海洋生活馆"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
+        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-black/20 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-        <div className="flex items-center space-x-2 mb-8">
-          <Sparkles className="w-5 h-5 text-amber-400" />
-          <span className="text-amber-200 text-sm font-medium tracking-widest uppercase">
-            Smart Car Wash Leader
-          </span>
-          <Sparkles className="w-5 h-5 text-amber-400" />
-        </div>
-
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight drop-shadow-2xl">
-          <span className="block">{companyInfo.name}</span>
-          <span className="text-amber-400 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 block">
+      <div className="relative z-10 h-full flex items-start justify-end pt-30 md:pt-40 px-4 md:px-16">
+        <div className="w-full max-w-xl md:max-w-2xl text-center">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg whitespace-nowrap">
             {companyInfo.slogan}
-          </span>
-        </h1>
+          </h1>
 
-        <p className="text-xl sm:text-2xl text-gray-100 max-w-3xl mb-12 leading-relaxed font-light drop-shadow-lg">
-          {companyInfo.description}
-        </p>
+          <p className="text-sm md:text-base text-white/85 leading-relaxed font-light mb-8">
+            {companyInfo.description}
+          </p>
 
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-          <button
-            onClick={() => navigate('/products')}
-            className="px-10 py-4 bg-amber-500 text-white rounded-full font-bold text-lg hover:bg-amber-600 transition-all duration-300 hover:shadow-2xl hover:scale-105"
-          >
-            查看产品
-          </button>
-          <button
-            onClick={() => navigate('/contact')}
-            className="px-10 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white rounded-full font-bold text-lg hover:bg-white/20 hover:border-white transition-all duration-300"
-          >
-            联系我们
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+            <button
+              onClick={() => navigate('/products')}
+              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold text-base hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
+              查看产品
+            </button>
+            <button
+              onClick={() => navigate('/contact')}
+              className="px-8 py-3 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-semibold text-base hover:bg-white/30 hover:border-white/50 transition-all duration-300"
+            >
+              联系我们
+            </button>
+          </div>
         </div>
       </div>
 
       <button
         onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce drop-shadow-lg"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white/60 hover:text-white animate-bounce transition-colors"
       >
-        <ChevronDown className="w-10 h-10" />
+        <ChevronDown className="w-8 h-8" />
       </button>
     </section>
   );

@@ -42,30 +42,33 @@ function AnimatedNumber({ value }: { value: string }) {
     return () => observer.disconnect();
   }, [value, hasAnimated]);
 
-  return <div ref={ref} className="text-4xl sm:text-5xl font-bold text-amber-400">{displayValue}</div>;
+  return <div ref={ref} className="text-4xl sm:text-5xl font-bold text-white">{displayValue}</div>;
 }
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+    <section className="py-16 bg-gradient-to-r from-cyan-600 via-blue-600 to-blue-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
+          <span className="text-cyan-200 text-sm font-medium tracking-wider uppercase mb-4 block">
+            成就展示
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             我们的成就
           </h2>
-          <p className="text-blue-100 text-lg">
+          <p className="text-cyan-100">
             多年深耕洗车设备行业，赢得客户信赖
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-white/10 rounded-2xl backdrop-blur-sm"
+              className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl"
             >
               <AnimatedNumber value={stat.value} />
-              <p className="text-blue-100 text-lg mt-2">{stat.label}</p>
+              <p className="text-cyan-100 text-base mt-2">{stat.label}</p>
             </div>
           ))}
         </div>
