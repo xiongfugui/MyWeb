@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const navItems = [
   { path: '/', label: '首页' },
   { path: '/products', label: '产品中心' },
+  { path: '/machine-start', label: '扫码洗车' },
   { path: '/about', label: '关于我们' },
   { path: '/services', label: '服务支持' },
   { path: '/contact', label: '联系我们' },
@@ -57,7 +58,7 @@ export default function Header() {
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.path}
