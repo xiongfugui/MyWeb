@@ -1,0 +1,4 @@
+aapi.gzlawh.cn  172.17.0.4:9010
+capi.gzlawh.cn 172.17.0.5:9020
+mapi.gzlawh.cn 172.17.0.6:9030
+admin.gzlawh.cn 172.18.0.2:8080

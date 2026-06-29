@@ -1,0 +1,96 @@
+# === HTTP → HTTPS 强制跳转 ===
+server {
+    listen 80;
+    server_name gzlawh.cn www.gzlawh.cn pay.gzlawh.cn portainer.gzlawh.cn;
+    return 301 https://$host$request_uri;
+}
+
+# === www.gzlawh.cn（静态站点）===
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name gzlawh.cn www.gzlawh.cn;
+    root /opt/www;
+    index index.html;
+
+    ssl_certificate     /opt/multi-site/certs/www.gzlawh.cn.crt;
+    ssl_certificate_key /opt/multi-site/certs/www.gzlawh.cn.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    gzip on;
+    gzip_types text/css application/javascript image/svg+xml application/json;
+    gzip_min_length 256;
+}
+
+# === pay.gzlawh.cn（反代到 lianpay 容器）===
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name pay.gzlawh.cn;
+
+    ssl_certificate     /opt/multi-site/certs/pay.gzlawh.cn.crt;
+    ssl_certificate_key /opt/multi-site/certs/pay.gzlawh.cn.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+        proxy_pass http://lianpay:8070;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+
+# === portainer.gzlawh.cn（反代到 portainer 容器）===
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name portainer.gzlawh.cn;
+
+    ssl_certificate     /opt/multi-site/certs/portainer.gzlawh.cn.crt;
+    ssl_certificate_key /opt/multi-site/certs/portainer.gzlawh.cn.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+        proxy_pass http://portainer:9000;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Portainer 需要 WebSocket 支持（实时日志、终端等功能依赖此配置）
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
